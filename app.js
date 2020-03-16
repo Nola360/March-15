@@ -10,17 +10,21 @@ function animatedForm() {
       //Check for validation
       if (input.type === 'text' && validateUser(input)) {
         nextSlide(parent, nextForm);
-      } else if (input.type === 'email' && validateemail(input)) {
+      } else if (input.type === 'email' && validateEmail(input)) {
         nextSlide(parent, nextForm);
       } else if (input.type === 'password' && validateUser(input)) {
         nextSlide(parent, nextForm);
+      } else {
+        parent.style.animation = 'shake 0.5s ease';
       }
+
+      //Get rid of animation
+      parent.addEventListener('animationend', () => {
+        parent.style.animation = '';
+      })
     })
   })
 }
-
-animatedForm();
-
 
 //this function takes in a user input
 function validateUser(user) {
@@ -33,7 +37,7 @@ function validateUser(user) {
   }
 }
 
-function validateemail(email) {
+function validateEmail(email) {
   const validation = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; /*regex*/
   if (validation.test(email.value)) {
     error('rgb 87. 189, 130');
@@ -41,14 +45,13 @@ function validateemail(email) {
   } else {
     error('rgb(189,87,87)');
   }
-
 }
-
 
 function nextSlide(parent, nextForm) {
   parent.classList.add('inactive');
   parent.classList.remove('active');
   nextForm.classList.add('active'); /* Next form transitions in*/
+
 }
 
 function error(color) {
@@ -56,3 +59,4 @@ function error(color) {
 }
 
 
+animatedForm();

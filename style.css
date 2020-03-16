@@ -65,6 +65,21 @@ div.inactive {
  div.active {
   opacity: 1;
   pointer-events: all; /*enables click*/
-  transform: translate(-50%, 50%);
+  transform: translate(-50%, -50%);
 } 
 
+
+/* Animation */
+@keyframes shake {
+  0% {
+    transform: translate(-50%,-50%) rotate(0deg);
+  }
+  
+  50% {
+    transform: translate(-50%,-50%) rotate(5deg);
+  }
+  
+  100% {
+    transform: translate(-50%,-50%) rotate(0deg);
+  }
+}
