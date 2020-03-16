@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  background-color: rgb(87,189,130);
+  transition: background 0.5s ease;
+  position: relative;
+  font-family: 'montserrat', 'sans-serif';
+  font-weight: bold;
+}
+
+.field-name,
+.field-email,
+.field-password,
+.field-finish {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #fff;
+  height: 50px;
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  transition: all 0.5s ease; /*Fading out/in transition */
+  
+}
+
+.field-name i,
+.field-email i,
+.field-password i,
+.field-finish i {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.field-name input,
+.field-email input,
+.field-password input {
+  background: none;
+  border: none;
+  flex: 1;
+  height: 100%;
+  outline: none;
+  font-size: 1.2rem;
+}
+
+/* two classes that transition in and out */
+div.inactive {
+  opacity: 0;
+  pointer-events: none; /*disables click*/
+  transform: translate(-50%,50%);
+}
+
+ div.active {
+  opacity: 1;
+  pointer-events: all; /*enables click*/
+  transform: translate(-50%, 50%);
+} 
+
